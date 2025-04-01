@@ -5,6 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { ArrowLeftCircleIcon, ArrowRightCircleIcon } from "lucide-react";
 
 const CarouselContext = React.createContext(null);
 
@@ -161,12 +162,7 @@ function CarouselPrevious({ className, ...props }) {
       )}
       {...props}
     >
-      <img
-        src="/svg/ic_leftArrow.svg"
-        alt="Next"
-        className="w-[20px] h-[20px] pointer-events-none"
-      />
-      <span className="sr-only">Previous slide</span>
+    <ArrowLeftCircleIcon />
     </Button>
   );
 }
@@ -196,11 +192,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <img
-        src="/svg/ic_rightArrow.svg"
-        alt="Next"
-        className="w-[20px] h-[20px] pointer-events-none"
-      />
+      <ArrowRightCircleIcon />
       <span className="sr-only">Next slide</span>
     </Button>
   );

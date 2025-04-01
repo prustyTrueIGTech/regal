@@ -34,7 +34,7 @@ const HomePage = () => {
         gameCategory.CasinoGames.length > 4 ? (
           <Col key={gameCategory.id} className="space-y-4">
             {/* Header */}
-            <div className="w-full flex justify-between items-center">
+            <div className="w-full grid grid-cols-3 ">
               <div className="flex items-center gap-2 text-white">
                 <Image
                   src="/svg/ic_slots.svg"
@@ -52,22 +52,25 @@ const HomePage = () => {
               {/* CarouselContent with right padding to prevent overlap */}
               <CarouselContent className="pl-4 pr-20">
                 {gameCategory.CasinoGames.map((game) => (
-                  <CarouselItem
-                    key={game.id}
-                    className="basis-auto w-[160px] h-[200px] rounded-xl overflow-hidden"
-                  >
-                    <img
-                      src={game.thumbnailUrl}
-                      alt={game.name}
-                      className="w-full h-full object-cover rounded-xl border border-white/10"
-                    />
-                  </CarouselItem>
+ <CarouselItem
+ key={game.id}
+ className="h-[200px] overflow-hidden rounded-xl 
+            basis-1/2 md:basis-1/3 lg:basis-1/4"
+>
+ <img
+   src={game.thumbnailUrl}
+   alt={game.name}
+   className="w-[200px] h-full object-fill rounded-xl border border-white/10"
+ />
+</CarouselItem>
+
+               
                 ))}
               </CarouselContent>
 
               {/* Arrows INSIDE Carousel */}
-              <div className="w-[100px]  top-0 right-4  flex gap-2" style={{width : '100px'}}>
-                <CarouselPrevious className="  bg-white rounded-full w-9 h-9 shadow-md hover:bg-gray-100 transition" />
+              <div className="absolute top-[-3rem] right-4  flex gap-2 w-[100px] ">
+                <CarouselPrevious className=" bg-white rounded-full w-9 h-9 shadow-md hover:bg-gray-100 transition" />
                 <CarouselNext className="bg-white rounded-full w-9 h-9 shadow-md hover:bg-gray-100 transition" />
               </div>
             </Carousel>
